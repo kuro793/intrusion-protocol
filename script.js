@@ -34,3 +34,41 @@ function handleStartupCommand(cmd) {
     log("Error: Invalid Command: " + cmd);
   }
 }
+
+const startupInput = document.getElementById("startupInput");
+const mainInput = document.getElementById("mainInput");
+const startupScreen = document.getElementById("startup");
+const mainScreen = document.getElementById("main");
+
+startupInput.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    const command = startupInput.value.trim();
+    startupInput.value = "";
+    if (command === "connect 46605") {
+      logToMain("> connect 46605");
+      transitionToMain();
+    } else {
+      logToStartup("Error: Invalid Command");
+    }
+  }
+});
+
+function transitionToMain() {
+  startupScreen.classList.add("hidden");
+  mainScreen.classList.remove("hidden");
+  mainInput.focus();
+}
+
+// 로그 출력 함수들
+function logToStartup(msg) {
+  const pre = startupScreen.querySelector("pre");
+  pre.textContent += "\n" + msg;
+}
+
+function logToMain(msg) {
+  const log = document.getElementById("log");
+  const line = document.createElement("div");
+  line.textContent = msg;
+  log.appendChild(line);
+  log.scrollTop = log.scrollHeight;
+}
