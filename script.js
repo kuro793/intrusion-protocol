@@ -26,3 +26,11 @@ function handleCommand(cmd) {
     log("Unknown command: " + cmd);
   }
 }
+
+function handleStartupCommand(cmd) {
+  if (cmd === "connect 46605") {
+    transitionToMainScreen();
+  } else {
+    log("Error: Invalid Command: " + cmd);
+  }
+}
