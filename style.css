@@ -1,0 +1,29 @@
+#terminal {
+  background: black;
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  padding: 20px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+}
+
+#log {
+  flex-grow: 1;
+  overflow-y: auto;
+  white-space: pre-wrap;
+}
+
+.prompt {
+  color: #0f0;
+}
+
+input {
+  background: black;
+  border: none;
+  color: #0f0;
+  width: 100%;
+  font-family: inherit;
+  font-size: 1rem;
+  outline: none;
+}
