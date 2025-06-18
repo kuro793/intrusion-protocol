@@ -27,3 +27,11 @@ input {
   font-size: 1rem;
   outline: none;
 }
+
+.hidden {
+  display: none;
+}
+.prompt {
+  color: #00ff00;
+  margin-right: 5px;
+}
