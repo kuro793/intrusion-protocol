@@ -15,7 +15,33 @@
 </head>
 <body>
   <h1>INTRUSION://PROTOCOL</h1>
-  <p>신호를 감지했습니다. 연결을 위해 고유 번호를 입력하십시오.</p>
+  <div id="startup">
+    <pre>
+┌──────────────────────────────┐
+│  ▒▒▒ 신호를 감지했습니다 ▒▒▒  │
+└──────────────────────────────┘
+
+> 시스템 포트: 46605  
+> 접속하려면 다음 명령어를 입력하십시오: connect 46605
+    </pre>
+    <div>
+      <span class="prompt">&gt;</span>
+      <input type="text" id="startupInput" autocomplete="off" />
+    </div>
+  </div>
+
+  <div id="main" class="hidden">
+    <!-- 메인 게임 화면 -->
+    <h1>INTRUSION://PROTOCOL</h1>
+    <p>명령어를 입력하세요. (예: draw, use [card])</p>
+    <div id="log"></div>
+    <div>
+      <span class="prompt">&gt;</span>
+      <input type="text" id="mainInput" autocomplete="off" />
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 <main id="terminal">
   <div id="log"></div>
