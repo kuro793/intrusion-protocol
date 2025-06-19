@@ -35,3 +35,8 @@ input {
   color: #00ff00;
   margin-right: 5px;
 }
+.error {
+  color: #ff3333;
+  font-family: monospace;
+  margin-bottom: 5px;
+}
