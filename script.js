@@ -1,14 +1,4 @@
 const logEl = document.getElementById("log");
-const inputEl = document.getElementById("commandInput");
-
-inputEl.addEventListener("keydown", function (e) {
-  if (e.key === "Enter") {
-    const command = inputEl.value.trim();
-    inputEl.value = "";
-    log("> " + command);
-    handleCommand(command);
-  }
-});
 
 function log(text) {
   const line = document.createElement("div");
