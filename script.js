@@ -17,6 +17,11 @@ function log(text) {
   logEl.scrollTop = logEl.scrollHeight;
 }
 
+window.onload = () => {
+  document.getElementById("main").classList.add("hidden");
+  document.getElementById("startup").classList.remove("hidden");
+}
+
 function handleCommand(cmd) {
   if (cmd === "help") {
     log("Available commands: draw, use [card], status, end");
