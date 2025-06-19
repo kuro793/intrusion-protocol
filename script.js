@@ -12,6 +12,18 @@ window.onload = () => {
   document.getElementById("startup").classList.remove("hidden");
 }
 
+function logToMain(text) {
+  const logDiv = document.getElementById("log");
+  const line = document.createElement("div");
+  line.textContent = text;
+  logDiv.appendChild(line);
+}
+
+function transitionToMain() {
+  document.getElementById("startup").classList.add("hidden");
+  document.getElementById("main").classList.remove("hidden");
+}
+
 function handleCommand(cmd) {
   if (cmd === "help") {
     log("Available commands: draw, use [card], status, end");
