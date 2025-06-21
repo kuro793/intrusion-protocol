@@ -6,6 +6,7 @@ body {
 }
 
 input {
+  display: inline-block;
   background: black;
   border: none;
   color: #00ff00;
@@ -13,6 +14,7 @@ input {
   font-family: inherit;
   font-size: 1rem;
   outline: none;
+  width: 80%;
 }
 
 .hidden {
@@ -20,6 +22,7 @@ input {
 }
 
 .prompt {
+  display: inline-block;
   color: #00ff00;
   margin-right: 5px;
 }
