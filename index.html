@@ -1,40 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
   <title>INTRUSION://PROTOCOL</title>
-  <style>
-    body {
-      background-color: black;
-      color: #00FF00;
-      font-family: 'Courier New', monospace;
-      padding: 20px;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <div id="startup">
     <h1>INTRUSION://PROTOCOL</h1>
     <pre>
-┌──────────────────────────────┐
-│ ▒▒▒▒▒▒▒▒ 신호를 감지했습니다 ▒▒▒▒▒▒▒▒▒▒▒ │
-└──────────────────────────────┘
-
-> 시스템 포트: 46605  
-> 접속하려면 다음 명령어를 입력하십시오: connect XXXXX
+[신호 감지됨. 시스템 포트 연결 준비 중...]
+> 시스템 포트: 46605
+> 연결 명령어: connect XXXXX
     </pre>
     <div>
       <span class="prompt">&gt;</span>
       <input type="text" id="startupInput" autocomplete="off" />
     </div>
-    <div id="errorMessage" class="error hidden"></div>
+    <div id="startupError" class="error hidden"></div>
   </div>
 
   <div id="main" class="hidden">
-    <!-- 메인 게임 화면 -->
     <h1>INTRUSION://PROTOCOL</h1>
-    <p>명령어를 입력하세요. (예: help)</p>
+    <p>시스템에 접속했습니다. 명령어를 입력하세요.</p>
     <div id="log"></div>
     <div>
       <span class="prompt">&gt;</span>
@@ -44,5 +32,4 @@
 
   <script src="script.js"></script>
 </body>
-
 </html>
