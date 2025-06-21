@@ -1,23 +1,14 @@
-#terminal {
-  background: black;
+body {
+  background-color: black;
   color: #00ff00;
   font-family: 'Courier New', monospace;
   padding: 20px;
-  height: 90vh;
-  display: flex;
-  flex-direction: column;
-}
-
-#log {
-  flex-grow: 1;
-  overflow-y: auto;
-  white-space: pre-wrap;
 }
 
 input {
   background: black;
   border: none;
-  color: #0f0;
+  color: #00ff00;
   width: 100%;
   font-family: inherit;
   font-size: 1rem;
@@ -27,12 +18,14 @@ input {
 .hidden {
   display: none;
 }
+
 .prompt {
   color: #00ff00;
   margin-right: 5px;
 }
+
 .error {
-  color: #ff3333;
-  font-family: monospace;
-  margin-bottom: 5px;
+  color: #ff4444;
+  margin-top: 5px;
+  white-space: pre-wrap;
 }
