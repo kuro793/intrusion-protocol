@@ -1,68 +1,56 @@
-const logEl = document.getElementById("log");
-
-function log(text) {
-  const line = document.createElement("div");
-  line.textContent = text;
-  logEl.appendChild(line);
-  logEl.scrollTop = logEl.scrollHeight;
-}
-
-window.onload = () => {
-  document.getElementById("main").classList.add("hidden");
-  document.getElementById("startup").classList.remove("hidden");
-}
-
-function logToMain(text) {
-  const logDiv = document.getElementById("log");
-  const line = document.createElement("div");
-  line.textContent = text;
-  logDiv.appendChild(line);
-}
-
-function transitionToMain() {
-  document.getElementById("startup").classList.add("hidden");
-  document.getElementById("main").classList.remove("hidden");
-}
-
-function handleCommand(cmd) {
-  if (cmd === "help") {
-    log("Available commands: draw, use [card], status, end");
-  } else if (cmd === "draw") {
-    log("You drew a card: 🖥️ Terminal");
-  } else {
-    log("Unknown command: " + cmd);
-  }
-}
-
-function handleStartupCommand(cmd) {
-  if (cmd === "connect 46605") {
-    transitionToMainScreen();
-  } else {
-    log("Error: Invalid Command: " + cmd);
-  }
-}
-
 const startupInput = document.getElementById("startupInput");
-const errorMessage = document.getElementById("errorMessage");
+const startupError = document.getElementById("startupError");
+const startupScreen = document.getElementById("startup");
+const mainScreen = document.getElementById("main");
+const mainInput = document.getElementById("mainInput");
+const logEl = document.getElementById("log");
 
 startupInput.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
-    const command = startupInput.value.trim();
+    const input = startupInput.value.trim();
     startupInput.value = "";
-    if (command === "connect 46605") {
-      errorMessage.classList.add("hidden");
-      logToMain("> connect 46605");
-      transitionToMain();
+
+    if (input.startsWith("connect")) {
+      const parts = input.split(" ");
+      if (parts.length === 2 && parts[0] === "connect") {
+        if (parts[1] === "46605") {
+          transitionToMain();
+        } else {
+          showStartupError("포트 연결 실패: 존재하지 않는 포트입니다.");
+        }
+      } else {
+        showStartupError("허가되지 않은 명령어 형식입니다.");
+      }
     } else {
-      showError("Error: Invalid Command");
+      showStartupError("허가되지 않은 명령어입니다.");
     }
-  } else {
-    // 입력 도중 오류 메시지 숨김
-    errorMessage.classList.add("hidden");
   }
 });
 
-function showError(message) {
-  errorMessage.textContent = message;
-  errorMessage.classList.remove("hidden");
+function showStartupError(message) {
+  startupError.textContent = "Error: " + message;
+  startupError.classList.remove("hidden");
+}
+
+function transitionToMain() {
+  startupScreen.classList.add("hidden");
+  mainScreen.classList.remove("hidden");
+  log("> 시스템에 접속됨. 연결 완료.");
+  mainInput.focus();
+}
+
+mainInput.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    const command = mainInput.value.trim();
+    mainInput.value = "";
+    log("> " + command);
+    // 나중에 명령어 처리 추가
+  }
+});
+
+function log(text) {
+  const div = document.createElement("div");
+  div.textContent = text;
+  logEl.appendChild(div);
+  logEl.scrollTop = logEl.scrollHeight;
 }
