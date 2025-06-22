@@ -53,4 +53,26 @@ function log(text) {
   div.textContent = text;
   logEl.appendChild(div);
   logEl.scrollTop = logEl.scrollHeight;
+
+const cardDatabase = {
+  "001": {
+    id: "001",
+    name: "네트워크 추적자",
+    traits: ["공격특화", "자원소모"],
+    attack: 200,
+    attackEffect: "상대의 방화벽 효과 무시",
+    defense: 100,
+    defenseEffect: "피격 시 50% 확률로 반격"
+  },
+  "F01": {
+    id: "F01",
+    name: "기초 방화벽-프로토타입",
+    traits: ["방화벽", "수비특화"],
+    attack: 0,
+    attackEffect: "없음",
+    defense: 300,
+    defenseEffect: "공격력에 의한 피해를 입지 않는다."
+  }
+  // ...추가 카드
+};
 }
